@@ -13,6 +13,8 @@ class App extends Component {
     super(props)
     this.state = {data:[]}
   }
+
+  
   componentWillMount(){
     axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
     .then(res => {
@@ -25,7 +27,7 @@ class App extends Component {
 
   render(){
    return(
-    <div>
+    <div classname="skewed">
       <Nav></Nav>
       {/* <Img></Img> */}
 
