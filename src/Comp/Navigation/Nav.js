@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-class Create extends Component {
-    componentWillMount(){
-        
-    }
+class Nav extends Component {
     render() {
         return (
             <div>
@@ -13,4 +10,4 @@ class Create extends Component {
     }
 }
 
-export default Create;
+export default Nav;
