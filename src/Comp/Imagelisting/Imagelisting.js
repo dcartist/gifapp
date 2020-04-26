@@ -33,7 +33,11 @@ class Imagelisting extends Component {
         </div>)
         return (
             <div>
-                {imagedata}
+                {/* {imagedata} */}
+                {this.state.data.map((i, index) => <div>
+                    <p key={index}>this info is {i.name}</p>
+    <img src={i.imgageurl}/>
+                </div>)}
             </div>
         );
     }
