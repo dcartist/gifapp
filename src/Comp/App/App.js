@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import {Route} from 'react-router-dom'
 import Img from '../Imagelisting/Imagelisting'
+import Create from "../Create/Create"
+import Home from "../Home/Home"
+import Nav from '../Navigation/Nav'
 
 class App extends Component {
   constructor(props){
@@ -22,7 +26,20 @@ class App extends Component {
   render(){
    return(
     <div>
-      <Img></Img>
+      <Nav></Nav>
+      {/* <Img></Img> */}
+
+      <Route path="/"
+          component={Home}
+        />
+      <Route path="/images"
+          component={Img}
+        />
+        
+      <Route path="/create"
+          component={Create}
+        />
+
     </div>
    )
   }

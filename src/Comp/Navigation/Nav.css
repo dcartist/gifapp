@@ -1,0 +1,27 @@
+.navBackground {
+    width: 100%;
+    background-color: black;
+    color: white;
+    /* padding: 10px, 20px; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+}
+
+.navBackground ul {
+text-decoration: none;
+list-style: none;
+display: inline;
+}
+
+.navBackground li {
+    text-decoration: none;
+    list-style: none;  
+    display: inline;
+    padding-right: 15px;
+}
+
+.navBackground li a{
+    text-decoration: none;
+    color: white;
+}
