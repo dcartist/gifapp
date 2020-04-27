@@ -7,11 +7,12 @@ import Img from '../Imagelisting/Imagelisting'
 import Create from "../Create/Create"
 import Home from "../Home/Home"
 import Nav from '../Navigation/Nav'
-
+import Deleted from '../Delete/Delete'
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {data:[]}
+    this.state = {data:[],
+    id: ""}
   }
 
   
@@ -24,18 +25,23 @@ class App extends Component {
         this.setState ({data: res.data})
     })
 }
+// setId = () => {
+// this.setState({id: deletedId})
+// }
 
   render(){
    return(
     <div classname="skewed">
       <Nav></Nav>
       
-      <Switch>
       <Route path="/" component={Home} />
       <Route path="/images" component={Img} /> 
       <Route path="/create" component={Create}/>
+      <Route path="/delete/:deletedId" component={Deleted}/>
+
+      {/* <Route path="/delete/:deletedId" render={(props)=> <Deleted deletedid={this.id} />}/> */}
       {/* <Route path="/jobs/info/:jobId" render={(props)=> <Jobinfo setjobId={this.setjobId} {...props} {...this.state} />} /> */}
-      </Switch>
+    
 
     </div>
    )

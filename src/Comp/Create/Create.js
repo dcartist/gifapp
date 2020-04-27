@@ -19,9 +19,7 @@ class Create extends Component {
 		}
 	}
 
-	componentDidMount(){
-
-	}
+	
 	
 	handleName = (event) =>{
 		event.preventDefault();
@@ -111,6 +109,7 @@ class Create extends Component {
     render() {
         return (
         <div>
+            CREATIONS
         <form onSubmit={this.handleSubmit}>
 	    <h2>Adding Image</h2>
 		<label>Image Name</label>
