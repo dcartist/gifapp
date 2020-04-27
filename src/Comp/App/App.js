@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Img from '../Imagelisting/Imagelisting'
 import Create from "../Create/Create"
 import Home from "../Home/Home"
@@ -29,18 +29,13 @@ class App extends Component {
    return(
     <div classname="skewed">
       <Nav></Nav>
-      {/* <Img></Img> */}
-
-      <Route path="/"
-          component={Home}
-        />
-      <Route path="/images"
-          component={Img}
-        />
-        
-      <Route path="/create"
-          component={Create}
-        />
+      
+      <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/images" component={Img} /> 
+      <Route path="/create" component={Create}/>
+      {/* <Route path="/jobs/info/:jobId" render={(props)=> <Jobinfo setjobId={this.setjobId} {...props} {...this.state} />} /> */}
+      </Switch>
 
     </div>
    )
