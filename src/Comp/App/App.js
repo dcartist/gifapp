@@ -9,6 +9,7 @@ import Home from "../Home/Home"
 import Nav from '../Navigation/Nav'
 import Deleted from '../Delete/Delete'
 import Update from '../Update/Update'
+import Image from '../Image/Image'
 class App extends Component {
   constructor(props){
     super(props)
@@ -41,6 +42,7 @@ class App extends Component {
       <Route path="/create" component={Create}/>
       <Route path="/delete/:deletedId" component={Deleted}/>
       <Route path="/update/:update" component={Update}/>
+      <Route path="/imagedetail/:imagedetail" component={Image}/>
 
       {/* <Route path="/delete/:deletedId" render={(props)=> <Deleted deletedid={this.id} />}/> */}
       {/* <Route path="/jobs/info/:jobId" render={(props)=> <Jobinfo setjobId={this.setjobId} {...props} {...this.state} />} /> */}
