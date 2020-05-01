@@ -4,7 +4,16 @@
 }
 
 .imageListBase img {
+    /* width: 95%; */
+    height: 200px;
+    width: auto;
 
-    width: 300px;
+    /* width: 300px; */
 
+}
+
+.imageBackground {
+    background-color: white;
+    margin: 5px;
+    text-align: center;
 }

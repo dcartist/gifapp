@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
+import 'pivotal-ui/css/copy-to-clipboard';
+import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
+import 'pivotal-ui/css/buttons';
+
 import {Link} from 'react-router-dom'
 import './imageList.css'
 
@@ -36,11 +41,21 @@ class Imagelisting extends Component {
     //     </div>)
         return (
             <div className="imageListBase">
-                this is working
                 {/* {imagedata} */}
-                {this.props.data.map((i, index) => <div>
+                {this.props.data.map((i, index) => <div className="imageBackground">
                     <p key={index}>this info is {i.name}</p>
+                    <p>
+                    <CopyToClipboard text={`<img src="${i.imgageurl}"/>`}>
+    <DefaultButton {...{
+      flat: true,
+      alt: true
+    }}>Click Me To Copy</DefaultButton>
+  </CopyToClipboard>
+                    </p>
+                    <p>
+                    
                     <Link to={`/imagedetail/${i._id}`}><button> Info</button></Link>
+                    </p>
     <img src={i.imgageurl}/>
     <p></p>
                 </div>)}
