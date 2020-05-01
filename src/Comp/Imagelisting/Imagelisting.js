@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import './imageList.css'
 
 class Imagelisting extends Component {
         // constructor(props){
@@ -34,7 +35,7 @@ class Imagelisting extends Component {
     // <img src={i.imgageurl}/>
     //     </div>)
         return (
-            <div>
+            <div className="imageListBase">
                 this is working
                 {/* {imagedata} */}
                 {this.props.data.map((i, index) => <div>

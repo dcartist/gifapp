@@ -1,0 +1,10 @@
+.imageListBase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.imageListBase img {
+
+    width: 300px;
+
+}
