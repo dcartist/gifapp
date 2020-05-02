@@ -4,6 +4,8 @@ import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
+import {Icon} from 'pivotal-ui/react/iconography';
+
 
 import {Link} from 'react-router-dom'
 import './imageList.css'
@@ -43,18 +45,18 @@ class Imagelisting extends Component {
             <div className="imageListBase">
                 {/* {imagedata} */}
                 {this.props.data.map((i, index) => <div className="imageBackground">
-                    <p key={index}>this info is {i.name}</p>
-                    <p>
-                    <CopyToClipboard text={`<img src="${i.imgageurl}"/>`}>
-    <DefaultButton {...{
-      flat: true,
-      alt: true
-    }}>Click Me To Copy</DefaultButton>
-  </CopyToClipboard>
-                    </p>
+                    <p key={index}>{i.name}</p>
+                    
                     <p>
                     
                     <Link to={`/imagedetail/${i._id}`}><button> Info</button></Link>
+                    <CopyToClipboard text={`<img src="${i.imgageurl}"/>`} tooltip="Copied">
+                    <DefaultButton style={{fontSize: '19px'}} {...{
+     flat: true,
+     iconOnly: true,
+     icon: <Icon src="copy"/>
+    }}/>
+  </CopyToClipboard>
                     </p>
     <img src={i.imgageurl}/>
     <p></p>

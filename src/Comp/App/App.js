@@ -10,6 +10,7 @@ import Nav from '../Navigation/Nav'
 import Deleted from '../Delete/Delete'
 import Update from '../Update/Update'
 import Image from '../Image/Image'
+import Main from '../ GifApi/Gifapi'
 class App extends Component {
   constructor(props){
     super(props)
@@ -35,7 +36,7 @@ class App extends Component {
    return(
     <div classname="skewed">
       <Nav></Nav>
-      
+      <Main></Main>  
       <Route path="/" component={Home} />
       <Route path="/images" render={(props)=> <Img data={this.state.data}></Img>} /> 
       {/* <Route path="/images" component={Img} />  */}
@@ -47,7 +48,7 @@ class App extends Component {
       {/* <Route path="/delete/:deletedId" render={(props)=> <Deleted deletedid={this.id} />}/> */}
       {/* <Route path="/jobs/info/:jobId" render={(props)=> <Jobinfo setjobId={this.setjobId} {...props} {...this.state} />} /> */}
     
-
+    
     </div>
    )
   }

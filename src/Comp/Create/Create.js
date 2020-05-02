@@ -12,7 +12,6 @@ class Create extends Component {
             optionaltag: "",
             activityName:"",
 			imgageurl:"",
-			default: true,
 			tags:[],
 			results: ""
 			
