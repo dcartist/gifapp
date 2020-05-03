@@ -11,33 +11,45 @@ import Deleted from '../Delete/Delete'
 import Update from '../Update/Update'
 import Image from '../Image/Image'
 import Main from '../ GifApi/Gifapi'
+import CreateGif from '../Create/GifCreate'
+import Giphy from '../ GifApi/Gifapi'
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {data:[],
-    id: ""}
+    this.state = {
+    data:[],
+    gifName: "Gif NAme",
+    gifUrl:"",
+    id: ""
+  }   
   }
 
   
   componentWillMount(){
     axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
     .then(res => {
-    //   const persons = res.data;
-    //   this.setState({ persons });
         console.log(res.data)
         this.setState ({data: res.data})
     })
 }
-// setId = () => {
-// this.setState({id: deletedId})
-// }
+
+setGifName = (event) =>{
+  event.preventDefault();
+  this.setState({
+    gifName: event.target.value
+    })
+  console.log(this.state.gifName)
+  }
+
 
   render(){
    return(
     <div classname="skewed">
       <Nav></Nav>
-      <Main></Main>  
+      {/* <Main></Main>   */}
       <Route path="/" component={Home} />
+      <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName} setGifName={this.setGifName}></Giphy>}/>
+      {/* <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName}></Giphy>}/> */}
       <Route path="/images" render={(props)=> <Img data={this.state.data}></Img>} /> 
       {/* <Route path="/images" component={Img} />  */}
       <Route path="/create" component={Create}/>

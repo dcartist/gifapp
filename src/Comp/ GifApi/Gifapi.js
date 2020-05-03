@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import GifCreateButton from './GIfCreateButton'
 
 class Gifapi extends Component {
     constructor(props){
         super(props)
         this.state = {
+            gifName: this.props.gifName,
             results: []
         }
     }
@@ -20,18 +21,22 @@ class Gifapi extends Component {
        
     }
     render() {
-        let gifImgages 
+        
         let finalresults = []
         if (this.state.results.length == 0){
         //   gifImgages = "LOADING"
         console.log("loading this up")
         } else {
 
-            console.log(this.state.results[0].images.downsized_large.url)
+            // console.log(this.state.results[0].images.downsized_large.url)
             for (let i = 0; i<this.state.results.length; i++){
-                console.log(this.state.results[i].images.downsized_large.url)
-                finalresults.push(this.state.results[i].images.downsized_large.url)
+                // console.log(this.state.results[i].images.downsized_large.url)
+                finalresults.push({url:this.state.results[i].images.downsized_large.url,
+                    name: this.state.results[i].title
+                })
+                
             }
+
         //      gifImgages = this.state.results.map((i, index)=><div>
         //     <li><img src={this.state.results[i].images.downsized_large.url}/></li>
         // </div>)
@@ -39,11 +44,11 @@ class Gifapi extends Component {
         
         return (
             <div>
-                {finalresults.map(i=><div><img src={i}/>
-                </div>)}
-               {/* {gifImgages} */}
-
-               {/* {this.state.results[0].images.downsized_large.url} */}
+                this should be working
+                
+                
+                {finalresults.map(i=><div><img src={i.url}/><GifCreateButton imgageurl={i.url} name={i.name} ></GifCreateButton></div>)}
+              
                 
             </div>
         );
