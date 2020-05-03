@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Card from '../Cards/Card'
 
 class Image extends Component {
     constructor(props){
@@ -26,6 +27,8 @@ class Image extends Component {
     render() {
         return (
             <div>
+
+                <Card url={this.state.results.imgageurl} name={this.state.results.name}></Card>
                 <p>{this.state.results.name}</p>
                 <img src={this.state.results.imgageurl}></img>
                 update information

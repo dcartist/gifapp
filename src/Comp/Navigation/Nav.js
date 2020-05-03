@@ -10,6 +10,7 @@ class Nav extends Component {
                 <li><Link to={"/"}>HOME</Link></li>
                 <li><Link to={"/Images"}>Images</Link></li>
                 <li><Link to={"/Create"}>Add Image</Link></li>
+                <li><Link to={"/giphy/trends"}>Giphy Trends</Link></li>
 
 
 

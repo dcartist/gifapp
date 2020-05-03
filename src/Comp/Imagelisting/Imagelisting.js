@@ -58,7 +58,7 @@ class Imagelisting extends Component {
     }}/>
   </CopyToClipboard>
                     </p>
-    <img src={i.imgageurl}/>
+    <img src={i.imgageurl}/>            
     <p></p>
                 </div>)}
             </div>

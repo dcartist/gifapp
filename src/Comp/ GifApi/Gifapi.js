@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import GifCreateButton from './GIfCreateButton'
+import './Gif.css'
+
 
 class Gifapi extends Component {
     constructor(props){
@@ -43,10 +45,8 @@ class Gifapi extends Component {
         }
         
         return (
-            <div>
-                this should be working
-                
-                
+            <div className="gifGrid">
+            
                 {finalresults.map(i=><div><img src={i.url}/><GifCreateButton imgageurl={i.url} name={i.name} ></GifCreateButton></div>)}
               
                 
