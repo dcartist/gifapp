@@ -25,17 +25,19 @@ class Imagelisting extends Component {
         //         tags:[]
         //     }
         // }
-    // componentDidMount(){
+    componentDidMount(){
 
-    // componentWillMount(){
-    //     axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
-    //     .then(res => {
-    //     //   const persons = res.data;
-    //     //   this.setState({ persons });
-    //         console.log(res.data)
-    //         this.setState ({data: res.data})
-    //     })
-    // }
+    // componentidMount(){
+        // window.location.reload(false); //reloads page
+
+        // axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
+        // .then(res => {
+        // //   const persons = res.data;
+        // //   this.setState({ persons });
+        //     console.log(res.data)
+        //     this.setState ({data: res.data})
+        // })
+    }
     render() {
         // console.log(this.props.data)
     //     let imagedata = this.props.data.map((i, index) => <div>
