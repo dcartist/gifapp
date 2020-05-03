@@ -4,7 +4,8 @@ import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
-import {Icon} from 'pivotal-ui/react/iconography';
+// import {Icon} from 'pivotal-ui/react/iconography';
+import Card from '../Cards/Cardmain'
 
 
 import {Link} from 'react-router-dom'
@@ -43,7 +44,13 @@ class Imagelisting extends Component {
     //     </div>)
         return (
             <div className="imageListBase">
-                {/* {imagedata} */}
+                
+
+                {this.props.data.map((i, index) => <Card url={i.imgageurl} name={i.name} id={i._id}></Card>)}
+
+
+
+{/* 
                 {this.props.data.map((i, index) => <div className="imageBackground">
                     <p key={index}>{i.name}</p>
                     
@@ -58,9 +65,9 @@ class Imagelisting extends Component {
     }}/>
   </CopyToClipboard>
                     </p>
-    <img src={i.imgageurl}/>            
+    <img src={i.imgageurl}/>           
     <p></p>
-                </div>)}
+                </div>)} */}
             </div>
         );
     }

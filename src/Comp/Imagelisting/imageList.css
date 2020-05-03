@@ -1,16 +1,17 @@
 .imageListBase {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
-.imageListBase img {
+/* .imageListBase img {
     /* width: 95%; */
-    height: 200px;
-    width: auto;
+    /* height: 200px;
+    width: auto; */
 
     /* width: 300px; */
 
-}
+/* } */
+
 
 .imageBackground {
     background-color: white;

@@ -28,11 +28,11 @@ class Image extends Component {
         return (
             <div>
 
-                <Card url={this.state.results.imgageurl} name={this.state.results.name}></Card>
-                <p>{this.state.results.name}</p>
+                <Card url={this.state.results.imgageurl} name={this.state.results.name} id={this.state.id}></Card>
+                {/* <p>{this.state.results.name}</p>
                 <img src={this.state.results.imgageurl}></img>
                 update information
-                <Link to={`/update/${this.state.id}`}><button>Press to update</button></Link>
+                <Link to={`/update/${this.state.id}`}><button>Press to update</button></Link> */}
             </div>
         );
     }

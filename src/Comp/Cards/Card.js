@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import './Cards.css'
 
 const CardExampleImageCard = (props) => (
@@ -8,9 +9,9 @@ const CardExampleImageCard = (props) => (
     <Image src={props.url} wrapped ui={false} />
     <Card.Content>
     <Card.Header>{props.name}</Card.Header>
-      <Card.Meta>Joined in 2016</Card.Meta>
+      {/* <Card.Meta>Joined in 2016</Card.Meta> */}
       <Card.Description>
-        Daniel is a comedian living in Nashville.
+      <Link to={`/update/${props.id}`}><button>Press to update</button></Link>
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
