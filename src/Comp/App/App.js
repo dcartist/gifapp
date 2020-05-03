@@ -13,6 +13,7 @@ import Image from '../Image/Image'
 import Main from '../ GifApi/Gifapi'
 import CreateGif from '../Create/GifCreate'
 import Giphy from '../ GifApi/Gifapi'
+import Searched from '../ GifApi/GiphySearch'
 class App extends Component {
   constructor(props){
     super(props)
@@ -53,6 +54,8 @@ setGifName = (event) =>{
       <Route path="/images" render={(props)=> <Img data={this.state.data}></Img>} /> 
       {/* <Route path="/images" component={Img} />  */}
       <Route path="/create" component={Create}/>
+      <Route path="/search" component={Searched}/>
+
       <Route path="/delete/:deletedId" component={Deleted}/>
       <Route path="/update/:update" component={Update}/>
       <Route path="/imagedetail/:imagedetail" component={Image}/>
