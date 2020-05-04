@@ -12,19 +12,21 @@ import {Link} from 'react-router-dom'
 import './imageList.css'
 
 class Imagelisting extends Component {
-        // constructor(props){
-        //     super(props)
-        //     this.state = {
-        //         data: [],
-        //         name: "",
-        //         githeight: 0,
-        //         gitwidth:0,
-        //         optionaltag: "",
-        //         activityName:"",
-        //         imgageurl:"",
-        //         tags:[]
-        //     }
-        // }
+        constructor(props){
+            super(props)
+            // this.state = {
+            //     data: [],
+                
+            // }
+        }
+        resetImg = ()=>{
+            axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
+            .then(res => {
+              console.log("resetting data")
+                // console.log(res.data)
+                this.setState ({data: res.data})
+            })
+          }
     componentDidMount(){
       
     // componentidMount(){
@@ -32,21 +34,16 @@ class Imagelisting extends Component {
 
         axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
         .then(res => {
-        //   const persons = res.data;
-        //   this.setState({ persons });
-
+      
+        //Checks to see if the APP data  needs to be updated with API updated data
         let checker = (arr, target) => target.every(v => arr.includes(v));
-        
-        // if (this.props.data.length == res.data.length){
-
         if (checker(this.props.data, res.data)){
             console.log("this is true")
         } else {
-            this.props.resetImg()
+            this.resetImg()
 
         }
-        //     console.log(res.data)
-        //     this.setState ({data: res.data})
+      
         })
     }
     render() {
