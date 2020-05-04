@@ -5,7 +5,7 @@ import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
 // import {Icon} from 'pivotal-ui/react/iconography';
-import Card from '../Cards/Cardmain'
+import Card from '../Cards/Materials/Card'
 
 
 import {Link} from 'react-router-dom'
@@ -26,17 +26,28 @@ class Imagelisting extends Component {
         //     }
         // }
     componentDidMount(){
-
+      
     // componentidMount(){
         // window.location.reload(false); //reloads page
 
-        // axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
-        // .then(res => {
-        // //   const persons = res.data;
-        // //   this.setState({ persons });
+        axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
+        .then(res => {
+        //   const persons = res.data;
+        //   this.setState({ persons });
+
+        let checker = (arr, target) => target.every(v => arr.includes(v));
+        
+        // if (this.props.data.length == res.data.length){
+
+        if (checker(this.props.data, res.data)){
+            console.log("this is true")
+        } else {
+            this.props.resetImg()
+
+        }
         //     console.log(res.data)
         //     this.setState ({data: res.data})
-        // })
+        })
     }
     render() {
         // console.log(this.props.data)

@@ -13,7 +13,7 @@ class Gifapi extends Component {
         }
     }
     componentWillMount(){
-        axios.get('http://api.giphy.com/v1/gifs/trending?api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248').then(info=>{
+        axios.get('https://api.giphy.com/v1/gifs/trending?api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248').then(info=>{
             console.log(info.data.data)
             this.setState({results: info.data.data})
             console.log("results:")

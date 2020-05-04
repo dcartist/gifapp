@@ -14,6 +14,7 @@ import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
 import './CardsMat.css'
+import GifCreateButton from '../../GifApi/GIfCreateButton'
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -55,10 +56,10 @@ export default function ImgMediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
-      <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link>
-      <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link>
-       
+      {/* <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
+      <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link> */}
+      {/* <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link> */}
+      <GifCreateButton imgageurl={props.url} name={props.name} ></GifCreateButton> 
       <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
                     <DefaultButton style={{fontSize: '19px'}} {...{
      flat: true,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Icon, Image } from 'semantic-ui-react'
 
 class GIfCreateButton extends Component {
 
@@ -7,16 +8,6 @@ class GIfCreateButton extends Component {
 
     handleSubmit = (event) =>{
 		event.preventDefault();
-		// if (this.state.password === this.state.passwordConfirm) {
-		//   this.setState({
-		// 	validText: 'Valid',
-		// 	  valid: true
-		//   })
-		// } else {
-		//   this.setState({
-		// 	validText: 'Passwords do not match',
-		// 	  valid: false
-		//   })
 		this.setState({results: "Form has be submitted"})
 		console.log('A name was submitted: '+ this.props.imgageurl);
 		
@@ -39,6 +30,7 @@ class GIfCreateButton extends Component {
             <div>
                 
         <form onSubmit={this.handleSubmit}>
+        <Icon name="copy" size='small'/>
 	    {/* <h2>Adding Image</h2>
 		<label>Image Name</label>
 		<input type="hidden" value={this.state.name} onChange={this.handleName} placeholder="Image Name"></input>
@@ -51,7 +43,6 @@ class GIfCreateButton extends Component {
 
 		 */}
 		<input type="submit"></input>
-		{/* <input type="reset"></input>	 */}
 	    </form>
 
 

@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import GifCreateButton from './GIfCreateButton'
 import './Gif.css'
+import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
+import 'pivotal-ui/css/copy-to-clipboard';
+import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
+import 'pivotal-ui/css/buttons';
+// import {Icon} from 'pivotal-ui/react/iconography';
+import Card from '../Cards/Materials/CardGif'
 
 
 class GiphySearch extends Component {
@@ -18,8 +24,8 @@ class GiphySearch extends Component {
         event.preventDefault()
         this.setState({searchtext: event.target.value})
         console.log(this.state.searchtext)
-        console.log(`http://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`)
-        let url = `http://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
+        console.log(`https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`)
+        let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
         axios.get(url).then(info=>{
             console.log(info)
             this.setState({results: info.data.data})
@@ -43,7 +49,7 @@ class GiphySearch extends Component {
                         <form>
                             <input type="text" onChange={this.SearchGif}></input>
                             <p>{this.state.searchtext}</p>
-                            <h2>LOADING...</h2>
+                            <h2> proceed to type </h2>
                         </form>
                     </div>
                 );
@@ -52,10 +58,19 @@ class GiphySearch extends Component {
                     <form>
                         <input type="text" onChange={this.SearchGif}></input>
                     </form>
+
+
+                    
                     <div className="gifGrid">
+
+                    
+
                     {this.state.results.map((i, index)=>(
                         <div key={index}>
-                            <img src={i.images.downsized_large.url}/><GifCreateButton imgageurl={i.images.downsized_large.url} name={i.title} ></GifCreateButton>
+                            <Card url={i.images.downsized_large.url} name={i.title}></Card>)
+
+{/* 
+                            <img src={i.images.downsized_large.url}/><GifCreateButton imgageurl={i.images.downsized_large.url} name={i.title} ></GifCreateButton> */}
                         </div>
                     ))}
                     </div>
