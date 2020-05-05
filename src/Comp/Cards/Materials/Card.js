@@ -72,7 +72,7 @@ export default function ImgMediaCard(props) {
       <CardActions>
       <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
       <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link>
-      {/* <Modal id={props.id} url={props.url} deletion={this.deletion()}></Modal> */}
+      {/* <Modal id={props.id} url={props.url}></Modal> */}
       <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link>
        
       <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
