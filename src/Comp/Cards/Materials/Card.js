@@ -14,6 +14,7 @@ import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
 import './CardsMat.css'
+import axios from 'axios'
 import Modal from '../../Delete/Modal'
 const useStyles = makeStyles({
   root: {
@@ -25,7 +26,20 @@ const useStyles = makeStyles({
   
 });
 
+
+
 export default function ImgMediaCard(props) {
+  let deletion = (event) => {
+    event.preventDefault();
+    axios.delete(`https://nameless-wildwood-47841.herokuapp.com/img/delete/${props.id}`)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
+    console.log(`https://nameless-wildwood-47841.herokuapp.com/img/delete/${props.id}`)
+    console.log("deleted")
+    // this.setState({results:"This information has been deleted"})
+  }
   const classes = useStyles();
 
   return (
@@ -58,7 +72,7 @@ export default function ImgMediaCard(props) {
       <CardActions>
       <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
       <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link>
-      <Modal id={props.id}></Modal>
+      {/* <Modal id={props.id} url={props.url} deletion={this.deletion()}></Modal> */}
       <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link>
        
       <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
