@@ -1,18 +1,15 @@
 import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import Deletion from "./Deletion"
 
 const ModalModalExample = (props) => (
   <Modal trigger={<Button>Show Modal</Button>}>
     <Modal.Header>Select a Photo</Modal.Header>
     <Modal.Content image>
-      <Image wrapped size='medium' src='/images/avatar/large/rachel.png' />
+      <Image wrapped size='medium' src={props.url} />
       <Modal.Description>
-        <Header>Default Profile Image</Header>
-        <p>
-          We've found the following gravatar image associated with your e-mail
-          address.
-        </p>
-        <p>Is it okay to use this photo?</p>
+          {props.id}
+        <Deletion id={props.id}></Deletion>
       </Modal.Description>
     </Modal.Content>
   </Modal>

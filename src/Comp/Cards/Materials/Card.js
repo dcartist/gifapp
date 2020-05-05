@@ -14,6 +14,7 @@ import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
 import 'pivotal-ui/css/buttons';
 import './CardsMat.css'
+import Modal from '../../Delete/Modal'
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -57,6 +58,7 @@ export default function ImgMediaCard(props) {
       <CardActions>
       <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
       <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link>
+      <Modal id={props.id}></Modal>
       <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link>
        
       <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
