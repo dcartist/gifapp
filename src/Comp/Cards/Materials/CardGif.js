@@ -60,7 +60,7 @@ export default function ImgMediaCard(props) {
       <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link> */}
       {/* <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link> */}
       <GifCreateButton imgageurl={props.url} name={props.name} ></GifCreateButton> 
-      <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
+      <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
                     <DefaultButton style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: true,

@@ -75,7 +75,7 @@ export default function ImgMediaCard(props) {
       {/* <Modal id={props.id} url={props.url}></Modal> */}
       <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link>
        
-      <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
+      <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
                     <DefaultButton style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: true,
