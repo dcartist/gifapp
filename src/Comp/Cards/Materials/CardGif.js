@@ -41,7 +41,7 @@ export default function ImgMediaCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-           <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
+           <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
            {props.name} <DefaultButton style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: true,

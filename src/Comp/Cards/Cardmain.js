@@ -15,7 +15,7 @@ const CardExampleImageCard = (props) => (
       
     <Image src={props.url} wrapped  ui={false} size='medium'/>
     <Card.Content textAlign={'center'}>
-    <Card.Header>{props.name}  <CopyToClipboard text={`<img src="${props.url}"/>`} tooltip="Copied">
+    <Card.Header>{props.name}  <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
                     <DefaultButton style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: true,
