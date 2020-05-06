@@ -4,7 +4,9 @@
 body{
   /* background: red; */
   background-image: url("./the-background-292729.png");
-  background-size: cover;
+  background-size: cover  ;
+  background-repeat: no-repeat;
+  background-color: red;
   /* background-image: url("./purplesquare.png"); */
 }
 .skewed {
