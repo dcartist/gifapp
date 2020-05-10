@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import {Route, Switch} from 'react-router-dom'
 import Img from '../Imagelisting/Imagelisting'
+import Imglist from '../Imagelisting/ImgList'
 import Create from "../Create/Create"
 import Home from "../Home/Home"
 import Nav from '../Navigation/Nav'
@@ -62,6 +63,7 @@ setGifName = (event) =>{
       <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName} setGifName={this.setGifName}></Giphy>}/>
       {/* <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName}></Giphy>}/> */}
    <Route path="/images" render={(props)=> <Img data={this.state.data}> resetImg={this.resetImg()}</Img>} /> 
+   <Route path="/pagination" render={(props)=> <Imglist data={this.state.data}> resetImg={this.resetImg()}</Imglist>} /> 
       {/* <Route path="/images" component={Img} />  */}
       <Route path="/create" component={Create}/>
       <Route path="/search" component={Search}/>
