@@ -63,7 +63,8 @@ setGifName = (event) =>{
       <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName} setGifName={this.setGifName}></Giphy>}/>
       {/* <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName}></Giphy>}/> */}
    <Route path="/images" render={(props)=> <Img data={this.state.data}> resetImg={this.resetImg()}</Img>} /> 
-   <Route path="/pagination" render={(props)=> <Imglist data={this.state.data}> resetImg={this.resetImg()}</Imglist>} /> 
+   <Route path="/page" render={(props)=> <Imglist data={this.state.data}></Imglist>} /> 
+   {/* <Route path="/pagination" render={(props)=> <Imglist data={this.state.data}> resetImg={this.resetImg()}</Imglist>} />  */}
       {/* <Route path="/images" component={Img} />  */}
       <Route path="/create" component={Create}/>
       <Route path="/search" component={Search}/>

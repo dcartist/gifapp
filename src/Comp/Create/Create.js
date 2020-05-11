@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
 let joininfo = []
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  '& > *': {
+		margin: theme.spacing(1),
+		width: '25ch',
+	  },
+	},
+  }));
 
 class Create extends Component {
 	constructor(props){
@@ -108,11 +120,28 @@ class Create extends Component {
     render() {
         return (
         <div>
-            CREATIONS
+
+			
         <form onSubmit={this.handleSubmit}>
+		<div>
+				<div>
+				<label>Image Name</label>
+				<TextField value={this.state.name} onChange={this.handleName} id="filled-basic" label="Name" variant="filled" />
+				</div>
+				<div>
+				<label>Image Name</label>
+				<TextField id="filled-basic" label="Filled" variant="filled" />
+				</div>
+				<div>
+				<label>Image Name</label>
+				<TextField id="filled-basic" label="Filled" variant="filled" />
+				</div>
+				
+				</div>
+
 	    <h2>Adding Image</h2>
-		<label>Image Name</label>
-		<input type="text" value={this.state.name} onChange={this.handleName} placeholder="Image Name"></input>
+		
+		<input type="text"  placeholder="Image Name"></input>
 		<label>Image Url</label>
 		<input type="url" value={this.state.imgageurl} onChange={this.handleimgageurl} placeholder="Image Url"></input>
 		<label> Alternate name/description</label>
