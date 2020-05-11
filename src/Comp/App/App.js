@@ -83,13 +83,4 @@ setGifName = (event) =>{
   }
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       Images lising
-//       <Img></Img>
-//     </div>
-//   );
-// }
-
 export default App;
