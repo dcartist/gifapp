@@ -1,0 +1,40 @@
+.creationForm{
+    display: flex;
+    background-color: white;
+    width: 75vw;
+    padding: 15px 20px;
+    justify-content: center;
+    /* justify-items: center; */
+    flex-direction: column;
+    margin: auto;
+}
+.creationForm div {
+   padding-bottom: 5px;
+}
+.creationForm p {
+  /* margin: 0, 0, -15px, 0; */
+  margin-bottom: -5px;
+}
+.creationForm small{
+  font-size: 6px;
+}
+
+.creationForm input[type=submit] {
+    /* margin: 0, 0, -15px, 0; */
+    /* background-color: black; */
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(00, 00, 00, .3);
+    width: 35vw;
+    /* margin: 10px; */
+  }
+
+.creationFormBase{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 92vh;
+
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import './Create.css'
 
 let joininfo = []
 
@@ -9,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 	  '& > *': {
 		margin: theme.spacing(1),
-		width: '25ch',
+		width: '80ch',
+		// width: '45ch',
 	  },
 	},
   }));
@@ -119,41 +121,45 @@ class Create extends Component {
 
     render() {
         return (
-        <div>
-
-			
+        <div className="creationFormBase">
+ 		
+		
         <form onSubmit={this.handleSubmit}>
-		<div>
+		<div className="creationForm">
+		<h2>Adding Image</h2>	
 				<div>
-				<label>Image Name</label>
-				<TextField value={this.state.name} onChange={this.handleName} id="filled-basic" label="Name" variant="filled" />
+				<p><label>Image Name</label></p>
+				<TextField value={this.state.name} onChange={this.handleName} fullWidth label="Name" variant="filled" labelWidth={60}/>
+				</div>
+
+				<div>
+				<p><label>Image Url</label></p>
+				<TextField label="Image Url" fullWidth variant="filled"   type="url" value={this.state.imgageurl} onChange={this.handleimgageurl}/>
 				</div>
 				<div>
-				<label>Image Name</label>
-				<TextField id="filled-basic" label="Filled" variant="filled" />
+				<p><label>Alternate name/description</label></p>
+				<TextField  label="description" fullWidth variant="filled" value={this.state.optionaltag} onChange={this.handleoptional} />
 				</div>
 				<div>
-				<label>Image Name</label>
-				<TextField id="filled-basic" label="Filled" variant="filled" />
+				<p><label>Image Tags </label><small>(please add commas after each tag)</small></p>
+				<TextField  label="Image Tags" fullWidth variant="filled" value={this.state.tags} onChange={this.handletags} multiline rows={4}/>
 				</div>
+				{/* <div>
+				<p><label>Image Name</label></p>
+				<TextField  label="Filled" fullWidth variant="filled"/>
+				</div> */}
+				<input type="submit"></input>
 				
 				</div>
 
-	    <h2>Adding Image</h2>
+	   
 		
-		<input type="text"  placeholder="Image Name"></input>
-		<label>Image Url</label>
-		<input type="url" value={this.state.imgageurl} onChange={this.handleimgageurl} placeholder="Image Url"></input>
-		<label> Alternate name/description</label>
-		<textarea value={this.state.optionaltag} onChange={this.handleoptional} placeholder="Optional"></textarea>
-		<label> tags</label>
-		<input type="text" value={this.state.tags} onChange={this.handletags} placeholder="Image tag"></input>
 		{/* <label>Git Height</label>
 		<input type="number" value={this.state.name} onChange={this.handleChange} placeholder="Image Name"></input>
 		<label>Git Width</label>
 		<input type="number" value={this.state.name} onChange={this.handleChange} placeholder="Image Name"></input> */}
 		
-		<input type="submit"></input>
+		
 		{/* <input type="reset"></input>	 */}
 	    </form>
 		<p>{this.state.results}</p>
