@@ -1,0 +1,61 @@
+.updateBackground{
+    width: 99%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 92vh;
+    align-items: center;
+}
+.updateBase{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
+}
+.updateBase img {
+    display: flex;
+    width: 90%;
+}
+
+.updateForm{
+    display: flex;
+    background-color: white;
+    /* width: 75vw; */
+    padding: 15px 20px;
+    justify-content: center;
+    /* justify-items: center; */
+    flex-direction: column;
+    margin: auto;
+}
+.updateForm div {
+   padding-bottom: 5px;
+}
+.updateForm p {
+  /* margin: 0, 0, -15px, 0; */
+  margin-bottom: -5px;
+}
+.updateForm small{
+  font-size: 6px;
+}
+
+.updateForm input[type=submit] {
+    /* margin: 0, 0, -15px, 0; */
+    /* background-color: black; */
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(00, 00, 00, .3);
+    width: 35vw;
+    /* margin: 10px; */
+  }
+
+.updateFormBase{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 92vh;
+
+}
+
+

@@ -1,5 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import './Update.css'
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  '& > *': {
+		margin: theme.spacing(1),
+		width: '80ch',
+		// width: '45ch',
+	  },
+	},
+  }));
 
 class Update extends Component {
   constructor(props) {
@@ -29,18 +42,8 @@ class Update extends Component {
         `https://nameless-wildwood-47841.herokuapp.com/img/update/${this.state.id}`
       )
       .then(res => {
-		//   console.log("this is the state:")
-		//   let testingOb = Object.keys(this.state)
-		//   let testingOb = Object.values(this.state)
-		//   let testingOb = Object.entries(this.state)
-		//   console.log(testingOb)
-		//   console.log(this.state)
-		//   console.log(testingOb[0][1].length)
-        // console.log(res);
-        // this.setState({ results: res.data });
         this.setState(res.data);
         console.log("this is results");
-        // console.log(this.state.results);
         console.log(this.state);
       });
   }
@@ -81,10 +84,6 @@ class Update extends Component {
     // let joininfo = []
 
     let info = event.target.value.split(",");
-    // joininfo.push(event.target.value)
-    // joininfo.push(event.target.value)
-    // console.log(info)
-    // joininfo = info
     this.setState(prevState => ({
       // tags: event.target.value
       tags: info
@@ -120,37 +119,61 @@ class Update extends Component {
   
   render() {
     return (
-      <div>
-        <div>
+      <div className="updateBackground">
+        <section className="updateBase">
+          <div>
+            {/* Left side of the update form */}
+            <img src={this.state.imgageurl}/>
+          </div>
+          <div>
           <form onSubmit={this.update}>
-            <h2>Updating Image</h2>
-			<p>Update:</p>
-			{/* <input value={this.state.testingText} onChange={this.handleTest}></input> */}
-			
-            <label>Image Name</label>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleName}
-              placeholder={this.state.results.name}
-            ></input>
+		<div className="updateForm">
+		<h2>Adding Image</h2>	
+				<div>
+				<p><label>Image Name</label></p>
+				<TextField value={this.state.name} onChange={this.handleName} fullWidth label={this.state.results.imgageurl} variant="filled" labelWidth={60}/>
+				</div>
 
-            <label>Image Url</label>
-            <input type="url" value={this.state.imgageurl} onChange={this.handleimgageurl} placeholder={this.state.results.imgageurl}></input>
-            <label> Alternate name/description</label>
-            <textarea value={this.state.optionaltag} onChange={this.handleoptional} placeholder={this.state.results.optionaltag}></textarea>
-            <label> tags</label>
-            <input type="text" value={this.state.tags} onChange={this.handletags} placeholder={this.state.results.tags}></input>
+				<div>
+				<p><label>Image Url</label></p>
+				<TextField label="Image Url" fullWidth variant="filled"   type="url" value={this.state.imgageurl} onChange={this.handleimgageurl}/>
+				</div>
+				<div>
+				<p><label>Alternate name/description</label></p>
+				<TextField  label="description" fullWidth variant="filled" value={this.state.optionaltag} onChange={this.handleoptional} />
+				</div>
+				<div>
+				<p><label>Image Tags </label><small>(please add commas after each tag)</small></p>
+				<TextField  label="Image Tags" fullWidth variant="filled" value={this.state.tags} onChange={this.handletags} multiline rows={4}/>
+				</div>
+				{/* <div>
+				<p><label>Image Name</label></p>
+				<TextField  label="Filled" fullWidth variant="filled"/>
+				</div> */}
+				<input type="submit"></input>
+				
+				</div>
 
-            {/* <label>Git Height</label>
+	   
+		
+		{/* <label>Git Height</label>
 		<input type="number" value={this.state.name} onChange={this.handleChange} placeholder="Image Name"></input>
 		<label>Git Width</label>
 		<input type="number" value={this.state.name} onChange={this.handleChange} placeholder="Image Name"></input> */}
+		
+		
+		{/* <input type="reset"></input>	 */}
+	    </form>
+          </div>
+        </section>
 
-            <input type="submit"></input>
-            {/* <input type="reset"></input>	 */}
-          </form>
-        </div>
+
+
+
+
+
+
+        
       </div>
     );
   }
