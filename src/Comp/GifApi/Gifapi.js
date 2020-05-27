@@ -10,16 +10,22 @@ class Gifapi extends Component {
         super(props)
         this.state = {
             gifName: this.props.gifName,
-            results: []
+            results: [],
+            catresults: []
         }
     }
     componentWillMount(){
+        
         axios.get('https://api.giphy.com/v1/gifs/trending?api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248').then(info=>{
-            console.log(info.data.data)
             this.setState({results: info.data.data})
-            console.log("results:")
-            console.log(this.state.results[0].images.downsized_large.url)
         }).catch(err=>console.log(err))
+        axios.get('https://api.gfycat.com/v1/reactions/populated?tagName=trending').then(info=> {
+            console.log(info.data.gfycats)
+            this.setState({catresults: info.data.gfycats})
+            console.log(info.data.gfycats)
+            console.log('state cat results:')
+            console.log(this.state.catresults)
+        })
 
        
     }
@@ -27,8 +33,8 @@ class Gifapi extends Component {
         
         let finalresults = []
         if (this.state.results.length == 0){
-        //   gifImgages = "LOADING"
-        console.log("loading this up")
+        // //   gifImgages = "LOADING"
+        // console.log("loading this up")
         } else {
 
             // console.log(this.state.results[0].images.downsized_large.url)
@@ -47,6 +53,13 @@ class Gifapi extends Component {
                 {finalresults.map((i, index)=>(
                         <div key={index}>
                             <Card url={i.url} name={i.name}></Card>
+                        </div>
+                    ))
+                    
+                    }
+                {this.state.catresults.map((i, index)=>(
+                        <div key={index}>
+                            <Card url={i.gifUrl} name={i.title}></Card>
                         </div>
                     ))
                     
