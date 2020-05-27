@@ -42,10 +42,10 @@ export default function ImgMediaCard(props) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
            <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
-           {props.name} <DefaultButton style={{fontSize: '19px'}} {...{
+           {props.name} <DefaultButton  aria-label="Edit" style={{fontSize: '19px'}} {...{
      flat: true,
-     iconOnly: true,
-     icon: <Icon name="copy" size='small'/>
+     iconOnly: false,
+     icon: <Icon name="copy" size='small'  aria-label="Edit" aria-hidden="true"/>
     }}/>
   </CopyToClipboard>
           </Typography>
@@ -61,10 +61,10 @@ export default function ImgMediaCard(props) {
       {/* <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link> */}
       <GifCreateButton imgageurl={props.url} name={props.name} ></GifCreateButton> 
       <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
-                    <DefaultButton style={{fontSize: '19px'}} {...{
+                    <DefaultButton aria-label="Edit" style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: true,
-     icon: <Icon name="copy" size='small'/>
+     icon: <Icon name="copy" size='small' aria-label="true" aria-hidden="true"/>
     }}/>
   </CopyToClipboard>
       </CardActions>

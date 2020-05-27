@@ -21,9 +21,10 @@ class Search extends Component {
         .then(res => {
             // console.log(res.data)
             this.setState ({results: res.data})
-            console.log(this.state.results)
+            // console.log(this.state.results)
             
         })
+
     }
     
 

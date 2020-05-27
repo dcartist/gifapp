@@ -15,6 +15,7 @@ class GiphySearch extends Component {
         super(props)
         this.state = {
         results:[],
+        catresults:[],
         searchtext:""
         }
 
@@ -23,19 +24,27 @@ class GiphySearch extends Component {
     SearchGif = (event)=>{
         event.preventDefault()
         this.setState({searchtext: event.target.value})
-        console.log(this.state.searchtext)
-        console.log(`https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`)
+        // console.log(this.state.searchtext)
+        // console.log(`https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`)
         let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
+        let gifcatUrl = `https://api.gfycat.com/v1/gfycats/search?search_text=${this.state.searchtext}`
+        
         axios.get(url).then(info=>{
-            console.log(info)
+            // console.log(info)
             this.setState({results: info.data.data})
             // console.log("results:")
-            console.log(this.state.results[0].images.downsized_large.url)
+            // console.log(this.state.results[0].images.downsized_large.url)
         }).catch(err=>console.log(err))
+
+        axios.get(gifcatUrl).then(info=> {
+            console.log(info.data.gfycats)
+            this.setState({catresults: info.data.gfycats})
+            console.log(info.data.gfycats)
+        })
     }
 
     displayedGif= () =>{
-        if (this.state.results.length == 0){
+        if (this.state.results.length == 0 && this.state.catresults.length == 0){
             return(<div><h2>LOADING...</h2></div>)
         } else {
             return(<div>PROCESSED</div>)
@@ -43,7 +52,7 @@ class GiphySearch extends Component {
     }
     
     render() {
-            if (this.state.results.length == 0){
+            if (this.state.results.length == 0  && this.state.catresults.length == 0){
                 return (
                     <div>
                         <form>
@@ -67,12 +76,18 @@ class GiphySearch extends Component {
 
                     {this.state.results.map((i, index)=>(
                         <div key={index}>
-                            <Card url={i.images.downsized_large.url} name={i.title}></Card>)
-
-{/* 
-                            <img src={i.images.downsized_large.url}/><GifCreateButton imgageurl={i.images.downsized_large.url} name={i.title} ></GifCreateButton> */}
+                            <Card url={i.images.downsized_large.url} name={i.title}></Card>
                         </div>
-                    ))}
+                    ))
+                    
+                    }
+                    {this.state.catresults.map((i, index)=>(
+                        <div key={index}>
+                            <Card url={i.gifUrl} name={i.title}></Card>
+                        </div>
+                    ))
+                    
+                    }
                     </div>
                     
                 </div>)
