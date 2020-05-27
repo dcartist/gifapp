@@ -8,7 +8,11 @@ import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-u
 import 'pivotal-ui/css/buttons';
 // import {Icon} from 'pivotal-ui/react/iconography';
 import Card from '../Cards/Materials/CardGif'
-
+let backGroundColoring = {
+    // backgroundColor: '#a11515',
+    paddingBottom: '20px',
+    backgroundImage: 'radial-gradient( #570202, #7d0000, #a11515)'
+  }
 
 class GiphySearch extends Component {
     constructor(props){
@@ -54,7 +58,7 @@ class GiphySearch extends Component {
     render() {
             if (this.state.results.length == 0  && this.state.catresults.length == 0){
                 return (
-                    <div>
+                    <div className="gifBody">
                         <form>
                             <input type="text" onChange={this.SearchGif}></input>
                             <p>{this.state.searchtext}</p>
@@ -63,7 +67,7 @@ class GiphySearch extends Component {
                     </div>
                 );
             } else {
-                return(<div >
+                return(<div className="gifBody">
                     <form>
                         <input type="text" onChange={this.SearchGif}></input>
                     </form>
