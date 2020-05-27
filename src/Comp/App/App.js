@@ -17,9 +17,11 @@ import Giphy from "../GifApi/Gifapi";
 import GifSearched from "../GifApi/GiphySearch";
 import Search from "../Search/Search";
 let backGroundColoring = {
-  backgroundColor: '#a11515',
-  paddingBottom: '20px'
+  // backgroundColor: '#a11515',
+  paddingBottom: '20px',
+  backgroundImage: 'radial-gradient( #570202, #7d0000, #a11515)'
 }
+
 class App extends Component {
   constructor(props) {
     super(props);
