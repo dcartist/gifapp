@@ -5,6 +5,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import {Link} from 'react-router-dom'
+import {Icon, Image } from 'semantic-ui-react'
 import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
