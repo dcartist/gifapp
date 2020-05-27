@@ -16,12 +16,17 @@
     display: flex;
     justify-content: center;
     color: white;
+    font-weight: 600;
 }
 .Pagination a {
     color: white;
     
 }
 
+.Pagspace {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .imageBackground {
     background-color: white;
     margin: 5px;

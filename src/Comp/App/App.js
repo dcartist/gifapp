@@ -16,6 +16,10 @@ import CreateGif from "../Create/GifCreate";
 import Giphy from "../GifApi/Gifapi";
 import GifSearched from "../GifApi/GiphySearch";
 import Search from "../Search/Search";
+let backGroundColoring = {
+  backgroundColor: '#a11515',
+  paddingBottom: '20px'
+}
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,10 +60,10 @@ class App extends Component {
 
   render() {
     return (
-      <div classname="skewed">
+      <div classname="skewed" style={backGroundColoring}>
         <Nav></Nav>
         {/* <Main></Main>   */}
-        <Route path="/" component={Home} />
+        <Route path="/" exact component={Home} />
         <Route
           path="/giphy/trends"
           render={(props) => (

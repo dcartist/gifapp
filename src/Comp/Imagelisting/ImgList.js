@@ -106,6 +106,13 @@ class ImgList extends Component {
           {/* {this.props.data.map((i, index) => <Card url={i.imgageurl} name={i.name} id={i._id}></Card>)} */}
           {/* {this.props.data.map((i, index) => <div key={index}>{i.name}</div>)} */}
         </div>
+        <div className="Pagination Pagspace">
+          <JwPagination
+            items={this.state.pages}
+            onChangePage={this.onChangePage}
+            pageSize={12}
+          />
+        </div>
       </div>
     );
   }
