@@ -10,5 +10,13 @@
 }
 
 .gifBody{
-height: auto;
+/* height: auto; */
+height: 90vh;
+
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import GifCreateButton from './GIfCreateButton'
 import './Gif.css'
+import Card from '../Cards/Materials/CardGif'
 
 
 class Gifapi extends Component {
@@ -39,15 +40,18 @@ class Gifapi extends Component {
                 
             }
 
-        //      gifImgages = this.state.results.map((i, index)=><div>
-        //     <li><img src={this.state.results[i].images.downsized_large.url}/></li>
-        // </div>)
         }
         
         return (
             <div className="gifGrid">
-            
-                {finalresults.map(i=><div><img src={i.url}/><GifCreateButton imgageurl={i.url} name={i.name} ></GifCreateButton></div>)}
+                {finalresults.map((i, index)=>(
+                        <div key={index}>
+                            <Card url={i.url} name={i.name}></Card>
+                        </div>
+                    ))
+                    
+                    }
+                {/* {finalresults.map(i=><div><img src={i.url}/><GifCreateButton imgageurl={i.url} name={i.name} ></GifCreateButton></div>)} */}
               
                 
             </div>

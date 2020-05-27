@@ -58,16 +58,15 @@ class GiphySearch extends Component {
     render() {
             if (this.state.results.length == 0  && this.state.catresults.length == 0){
                 return (
-                    <div className="gifBody">
+                    <div className="gifBody" style={backGroundColoring}>
                         <form>
                             <input type="text" onChange={this.SearchGif}></input>
-                            <p>{this.state.searchtext}</p>
-                            <h2> proceed to type </h2>
+                            
                         </form>
                     </div>
                 );
             } else {
-                return(<div className="gifBody">
+                return(<div className="gifBody" style={backGroundColoring}>
                     <form>
                         <input type="text" onChange={this.SearchGif}></input>
                     </form>
