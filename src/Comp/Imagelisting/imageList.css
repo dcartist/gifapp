@@ -12,6 +12,15 @@
 
 /* } */
 
+.Pagination {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.Pagination a {
+    color: white;
+    
+}
 
 .imageBackground {
     background-color: white;
