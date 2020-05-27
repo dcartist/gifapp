@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "pivotal-ui/css/copy-to-clipboard";
-import {
-  DefaultButton,
-  PrimaryButton,
-  DangerButton,
-  BrandButton,
-} from "pivotal-ui/react/buttons";
 import "pivotal-ui/css/buttons";
 import JwPagination from "jw-react-pagination";
 // import {Icon} from 'pivotal-ui/react/iconography';
 import Card from "../Cards/Materials/Card";
+// import Card from "../Cards/Materials/SmCard";
 
 import { Link } from "react-router-dom";
 import "./imageList.css";

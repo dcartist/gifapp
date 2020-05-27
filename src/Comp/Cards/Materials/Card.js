@@ -18,10 +18,36 @@ import axios from 'axios'
 import Modal from '../../Delete/Modal'
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    // maxWidth: '90%',
+    height: 'auto',
+    // maxWidth: 300,
+    // maxWidth: 151,
+      // maxHeight: '200',
     backgroundColor:"white",
     marginTop: 20,
-    boxShadow: "5px 5px 10px black"
+    margin: 20,
+    boxShadow: "5px 5px 10px black",
+    media: {
+      minheight: 240,
+      // maxHeight: 200
+      position: 'relative',
+      minWidth: '100%',
+      width: '100%',
+   paddingTop: '100%'
+      
+    },
+    content: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignContent: 'flex-end'
+    },
+  //   cover: {
+  //     // maxWidth: 151,
+  //     // height: 100,
+  //     // display: 'flex',
+  //     width: '100%',
+  //  paddingTop: '100%'
+  //   },
   },
   
 });
@@ -47,13 +73,16 @@ export default function ImgMediaCard(props) {
       <CardActionArea className="cardLinks">
           
         <CardMedia
+        className={classes.media}
           component="img"
           alt={props.name}
-          height="230"
+          // height="230"
+          // height='200'
           image={props.url}
           title={props.name}
+      
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
            <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
            {props.name} <DefaultButton style={{fontSize: '19px'}} {...{

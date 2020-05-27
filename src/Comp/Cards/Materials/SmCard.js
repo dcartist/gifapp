@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import {Icon, Image } from 'semantic-ui-react'
 import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import 'pivotal-ui/css/copy-to-clipboard';
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';
@@ -16,20 +17,26 @@ import axios from 'axios'
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    height: "auto",
-    width: '100%'
+    // height: "auto",
+    // maxWidth: '90%'
+    margin: 20,
+    maxHeight: 200,
+    // width: '70%'
+    // width: '100%'
   },
   details: {
     display: "flex",
     flexDirection: "column"
   },
   content: {
-    flex: "1 0 auto"
+    // flex: "5 0 auto"
   },
   cover: {
     // width: 250
-    width: "100%",
-    height: "auto"
+    maxWidth: "100%",
+    height: '90%',
+
+    // paddingTop: '100%'
   },
   controls: {
     display: "flex",
@@ -77,7 +84,8 @@ export default function MediaControlCard(props) {
         className={classes.cover}
         component="img"
           alt={props.name}
-          height="230"
+          // height="230"
+          // height="230"
           image={props.url}
           title={props.name}
       />
