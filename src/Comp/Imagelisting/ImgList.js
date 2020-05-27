@@ -24,15 +24,6 @@ class ImgList extends Component {
       currentPage: 0,
     };
   }
-  // resetImg = ()=>{
-  //     axios.get(`https://nameless-wildwood-47841.herokuapp.com/img`)
-  //     .then(res => {
-  //       console.log("resetting data")
-  //         // console.log(res.data)
-  //         this.setState ({data: res.data, pageListing: this.state.data/10 })
-
-  //     })
-  //   }
   trial = (number, array) => {
     let end = number + 10;
     let setofNumbers = array.slice(number, end);
@@ -69,10 +60,6 @@ class ImgList extends Component {
       .then((res) => {
         console.log(res);
         console.log("info");
-        // this.setState=({
-        //     page: res.data
-        // })
-        // console.log(this.state.page)
       })
       .catch((err) => console.log(err));
   }
