@@ -20,6 +20,7 @@
 }
 .Pagination a {
     color: white;
+    padding: 0 5px;
     
 }
 
@@ -32,3 +33,13 @@
     margin: 5px;
     text-align: center;
 }
+
+/* .pn {
+    display: inline;
+} */
+.pn li{
+    display: inline;
+    color: white;
+    padding: 0 4px;
+}
+

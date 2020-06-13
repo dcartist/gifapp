@@ -42,29 +42,22 @@ export default function ImgMediaCard(props) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
            <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
-           {props.name} <DefaultButton  aria-label="Edit" style={{fontSize: '19px'}} {...{
+           {props.name} <DefaultButton  aria-label="Copy" style={{fontSize: '19px'}} {...{
      flat: true,
      iconOnly: false,
-     icon: <Icon name="copy" size='small'  aria-label="Edit" aria-hidden="true"/>
+     icon: <Icon name="copy" size='small'  aria-label="Copy" aria-hidden="true"/>
     }}/>
   </CopyToClipboard>
           </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography> */}
         </CardContent>
       </CardActionArea>
       <CardActions>
-      {/* <Link to={`/imagedetail/${props.id}`}><Icon name="info circle"/></Link>
-      <Link to={`/delete/${props.id}`}><Icon name="trash alternate"></Icon></Link> */}
-      {/* <Link to={`/update/${props.id}`}><Icon name="edit"></Icon></Link> */}
       <GifCreateButton imgageurl={props.url} name={props.name} ></GifCreateButton> 
       <CopyToClipboard text={`<img src="${props.url}" width=500/>`} tooltip="Copied">
-                    <DefaultButton aria-label="Edit" style={{fontSize: '19px'}} {...{
+                    <DefaultButton aria-label="icon" style={{fontSize: '19px'}} {...{
      flat: true,
-     iconOnly: true,
-     icon: <Icon name="copy" size='small' aria-label="true" aria-hidden="true"/>
+     iconOnly: false,
+     icon: <Icon name="copy" size='small' aria-label="icon" aria-hidden="true" label="icon"/>
     }}/>
   </CopyToClipboard>
       </CardActions>

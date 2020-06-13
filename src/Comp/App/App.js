@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import { Route, Switch } from "react-router-dom";
@@ -11,9 +10,8 @@ import Nav from "../Navigation/Nav";
 import Deleted from "../Delete/Delete";
 import Update from "../Update/Update";
 import Image from "../Image/Image";
-import Main from "../GifApi/Gifapi";
-import CreateGif from "../Create/GifCreate";
 import Giphy from "../GifApi/Gifapi";
+import Listing from "../Imagelisting/Listing"
 import GifSearched from "../GifApi/GiphySearch";
 import Search from "../Search/Search";
 let backGroundColoring = {
@@ -64,7 +62,6 @@ class App extends Component {
     return (
       <div classname="skewed" style={backGroundColoring}>
         <Nav></Nav>
-        {/* <Main></Main>   */}
         <Route path="/" exact component={Home} />
         <Route
           path="/giphy/trends"
@@ -77,10 +74,10 @@ class App extends Component {
         />
         {/* <Route path="/giphy/trends" render={(props)=><Giphy gifName={this.state.gifName}></Giphy>}/> */}
         {/* <Route path="/images" render={(props)=> <Img data={this.state.data}> resetImg={this.resetImg()}</Img>} />  */}
-        <Route
+        {/* <Route
           path="/images"
           render={(props) => <Imglist data={this.state.data}></Imglist>}
-        />
+        /> */}
         <Route
           path="/page"
           render={(props) => <Imglist data={this.state.data}></Imglist>}
@@ -89,6 +86,8 @@ class App extends Component {
         {/* <Route path="/images" component={Img} />  */}
         <Route path="/create" component={Create} />
         <Route path="/search" component={Search} />
+        <Route path="/list" render={(props) => <Listing data={this.state.data}></Listing>}/>
+        <Route path="/images" render={(props) => <Listing data={this.state.data}></Listing>}/>
         <Route path="/giphy/search" component={GifSearched} />
 
         <Route path="/delete/:deletedId" component={Deleted} />

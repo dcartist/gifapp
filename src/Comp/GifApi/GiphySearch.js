@@ -24,27 +24,29 @@ class GiphySearch extends Component {
         }
 
     }
-
+    SearchText = (event) => {
+        event.preventDefault()
+        console.log(event.target.value)
+        this.setState({searchtext: event.target.value})
+        console.log(this.state.searchtext)
+    }
     SearchGif = (event)=>{
         event.preventDefault()
-        this.setState({searchtext: event.target.value})
-        // console.log(this.state.searchtext)
-        // console.log(`https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`)
+        this.setState({results:[], catresults:[]})
         let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
         let gifcatUrl = `https://api.gfycat.com/v1/gfycats/search?search_text=${this.state.searchtext}`
         
         axios.get(url).then(info=>{
             // console.log(info)
             this.setState({results: info.data.data})
-            // console.log("results:")
-            // console.log(this.state.results[0].images.downsized_large.url)
+            axios.get(gifcatUrl).then(info=> {
+                console.log(info.data.gfycats)
+                this.setState({catresults: info.data.gfycats})
+                console.log(info.data.gfycats)
+            })
         }).catch(err=>console.log(err))
 
-        axios.get(gifcatUrl).then(info=> {
-            console.log(info.data.gfycats)
-            this.setState({catresults: info.data.gfycats})
-            console.log(info.data.gfycats)
-        })
+       
     }
 
     displayedGif= () =>{
@@ -59,16 +61,17 @@ class GiphySearch extends Component {
             if (this.state.results.length == 0  && this.state.catresults.length == 0){
                 return (
                     <div className="gifBody" style={backGroundColoring}>
-                        <form>
-                            <input type="text" onChange={this.SearchGif}></input>
-                            
-                        </form>
+                       <form onSubmit={this.SearchGif}>
+                        <input type="text" onChange={this.SearchText}></input>
+                        <input type="submit"></input>
+                    </form>
                     </div>
                 );
             } else {
                 return(<div className="gifBody" style={backGroundColoring}>
-                    <form>
-                        <input type="text" onChange={this.SearchGif}></input>
+                    <form onSubmit={this.SearchGif}>
+                        <input type="text" onChange={this.SearchText}></input>
+                        <input type="submit"></input>
                     </form>
 
 

@@ -1,3 +1,7 @@
+// Length from main then divide by how many on a page
+// limit is how many on a page
+//skip is page number * how many on a page
+
 import React, { Component } from "react";
 import axios from "axios";
 import "pivotal-ui/css/copy-to-clipboard";
@@ -14,15 +18,21 @@ class ImgList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // pages: 10,
+      
       pageOfItems: [],
-      data: [],
       pageListing: 90,
       pages: [],
+      listNumber: 0,
       // pageListing:0,
       pageListArray: [],
       currentPage: 0,
     };
+  }
+
+  pageInput = (item) => {
+    this.setState({listNumber: item})
+    console.log(this.state.listNumber)
+
   }
   trial = (number, array) => {
     let end = number + 10;
@@ -34,6 +44,19 @@ class ImgList extends Component {
     // update local state with new page of items
     this.setState({ pageOfItems });
   };
+
+  listingNumbers = () => {
+    console.log((this.props.data.length/12)+1)
+    let pagenumbers = []
+    console.log('numbers')
+    for (let i = 1; i < ((this.props.data.length/12)+1); i++ ){
+      // console.log(i)
+      pagenumbers.push(i)
+    }
+    // return(pagenumbers.map((item, index)=> (<li key={index}><a href="#" id={item} onClick={this.pageInput}>{item}</a></li>)))
+    return(pagenumbers.map((item, index)=> (<li key={index}><Link id={item} onClick={this.pageInput(item)}>{item}</Link></li>)))
+  }
+
 
   componentWillMount() {
     axios
@@ -63,9 +86,15 @@ class ImgList extends Component {
       })
       .catch((err) => console.log(err));
   }
+
+
   render() {
+    
     return (
       <div>
+        {this.props.data.length/12}
+       <ul className="pn"> {this.listingNumbers()}</ul>
+        this is a test
         <div className="Pagination">
           <JwPagination
             items={this.state.pages}
@@ -88,13 +117,13 @@ class ImgList extends Component {
           {/* {this.props.data.map((i, index) => <Card url={i.imgageurl} name={i.name} id={i._id}></Card>)} */}
           {/* {this.props.data.map((i, index) => <div key={index}>{i.name}</div>)} */}
         </div>
-        <div className="Pagination Pagspace">
+        {/* <div className="Pagination Pagspace">
           <JwPagination
             items={this.state.pages}
             onChangePage={this.onChangePage}
             pageSize={12}
           />
-        </div>
+        </div> */}
       </div>
     );
   }
