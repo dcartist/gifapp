@@ -44,7 +44,7 @@ class App extends Component {
     axios
       .get(`https://nameless-wildwood-47841.herokuapp.com/img`)
       .then((res) => {
-        console.log("resetting data");
+        // console.log("resetting data");
         // console.log(res.data)
         this.setState({ data: res.data });
       });
@@ -55,7 +55,7 @@ class App extends Component {
     this.setState({
       gifName: event.target.value,
     });
-    console.log(this.state.gifName);
+    // console.log(this.state.gifName);
   };
 
   render() {

@@ -25,18 +25,19 @@ class GiphySearch extends Component {
     }
     SearchText = (event) => {
         event.preventDefault()
-        console.log(event.target.value)
+        // console.log(event.target.value)
         this.setState({searchtext: event.target.value})
-        console.log(this.state.searchtext)
+        // console.log(this.state.searchtext)
     }
     SearchGif = (event)=>{
         event.preventDefault()
         this.setState({results:[], catresults:[]})
         let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
+        console.log(url)
         let gifcatUrl = `https://api.gfycat.com/v1/gfycats/search?search_text=${this.state.searchtext}`
         
         axios.get(url).then(info=>{
-            // console.log(info)
+            console.log(info)
             this.setState({results: info.data.data})
             axios.get(gifcatUrl).then(info=> {
                 console.log(info.data.gfycats)
@@ -77,15 +78,17 @@ class GiphySearch extends Component {
                     
                     <div className="gifGrid">
 
-                    
+                    {/* <p>Giphy</p> */}
 
                     {this.state.results.map((i, index)=>(
                         <div key={index}>
+                          
                             <Card url={i.images.downsized_large.url} name={i.title}></Card>
                         </div>
                     ))
                     
                     }
+                    {/* <p>GifCat:</p> */}
                     {this.state.catresults.map((i, index)=>(
                         <div key={index}>
                             <Card url={i.gifUrl} name={i.title}></Card>
