@@ -9,7 +9,6 @@ import 'pivotal-ui/css/buttons';
 // import {Icon} from 'pivotal-ui/react/iconography';
 import Card from '../Cards/Materials/CardGif'
 let backGroundColoring = {
-    // backgroundColor: '#a11515',
     paddingBottom: '20px',
     backgroundImage: 'radial-gradient( #570202, #7d0000, #a11515)'
   }

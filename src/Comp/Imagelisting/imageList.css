@@ -12,11 +12,14 @@
 
 /* } */
 
+
 .Pagination {
     display: flex;
     justify-content: center;
     color: white;
     font-weight: 600;
+    background-color: white;
+    height: 40px;
 }
 .Pagination a {
     color: white;

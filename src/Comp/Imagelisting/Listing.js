@@ -5,8 +5,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import "pivotal-ui/css/copy-to-clipboard";
 import "pivotal-ui/css/buttons";
+// import { Icon, Pagination } from 'semantic-ui-react'
 import {Pagination} from 'pivotal-ui/react/pagination';
-import JwPagination from "jw-react-pagination";
+
 // import {Icon} from 'pivotal-ui/react/iconography';
 import Card from "../Cards/Materials/Card";
 import 'pivotal-ui/css/pagination';
@@ -14,6 +15,10 @@ import 'pivotal-ui/css/pagination';
 
 import { Link } from "react-router-dom";
 import "./imageList.css";
+let colorPagination = {
+    color:'white',
+    backgroundColor: 'white'
+}
 
 class Listing extends Component {
   constructor(props) {
@@ -76,14 +81,24 @@ class Listing extends Component {
         {Math.ceil(this.props.data.length/12)}
         {listingNumbers}
         <div className="Pagination">
-        <Pagination items={Math.ceil(this.props.data.length/12)}
+{/* 
+        <Pagination
+    defaultActivePage={1}
+    ellipsisItem={{ content: <Icon name='ellipsis horizontal' />, icon: true }}
+    firstItem={{ content: <Icon name='angle double left' />, icon: true }}
+    lastItem={{ content: <Icon name='angle double right' />, icon: true }}
+    prevItem={{ content: <Icon name='angle left' />, icon: true }}
+    nextItem={{ content: <Icon name='angle right' />, icon: true }}
+    totalPages={Math.ceil(this.props.data.length/12)}
+    onClick={this.handleSelect}
+  /> */}
+
+        <Pagination className={colorPagination} items={Math.ceil(this.props.data.length/12)}
                     activePage={this.state.activePage}
                     onSelect={this.handleSelect}
                     next={true}
                     prev={true}
                     />
-        <div className="maxl">
-            </div>
         </div>
         
 
