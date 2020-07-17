@@ -14,6 +14,7 @@ import Giphy from "../GifApi/Gifapi";
 import Listing from "../Imagelisting/Listing"
 import GifSearched from "../GifApi/GiphySearch";
 import Search from "../Search/Search";
+import ImagePage from '../Imagelisting/Pagination'
 let backGroundColoring = {
   // backgroundColor: '#a11515',
   paddingBottom: '20px',
@@ -86,6 +87,8 @@ class App extends Component {
         {/* <Route path="/images" component={Img} />  */}
         <Route path="/create" component={Create} />
         <Route path="/search" component={Search} />
+        {/* <Route path="/pagination/:pagenumber" component={Listing} /> */}
+        <Route path="/pagination/:pagenumber" render={(props) => <ImagePage data={this.state.data} {...props}></ImagePage>}/>
         <Route path="/list" render={(props) => <Listing data={this.state.data}></Listing>}/>
         <Route path="/images" render={(props) => <Listing data={this.state.data}></Listing>}/>
         <Route path="/giphy/search" component={GifSearched} />

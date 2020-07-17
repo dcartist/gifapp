@@ -36,6 +36,8 @@ class Listing extends Component {
     };
   }
 
+  
+
   pageInput = (evt) => {
    evt.preventDefault();
     console.log(evt)
@@ -54,7 +56,8 @@ class Listing extends Component {
   }
   
 
-  componentWillMount() {
+  componentDidMount() {
+    const theparam = this.props.match.params.pagenumber
     this.setState({pages: Math.ceil(this.props.data.length/12)})
     axios
       .get(`https://nameless-wildwood-47841.herokuapp.com/img/page/1/12`)
@@ -63,6 +66,7 @@ class Listing extends Component {
         this.setState({results:res.data})
       })
       .catch((err) => console.log(err));
+      console.log(theparam)
   }
 
   

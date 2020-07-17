@@ -33,16 +33,16 @@ class GiphySearch extends Component {
         event.preventDefault()
         this.setState({results:[], catresults:[]})
         let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.searchtext}&api_key=OQ6ucd9nTO4qxwA5gKOQtlrKVtvde248`
-        console.log(url)
+        // console.log(url)
         let gifcatUrl = `https://api.gfycat.com/v1/gfycats/search?search_text=${this.state.searchtext}`
         
         axios.get(url).then(info=>{
-            console.log(info)
+            console.log(info.data)
             this.setState({results: info.data.data})
             axios.get(gifcatUrl).then(info=> {
-                console.log(info.data.gfycats)
+                // console.log(info.data.gfycats)
                 this.setState({catresults: info.data.gfycats})
-                console.log(info.data.gfycats)
+                // console.log(info.data.gfycats)
             })
         }).catch(err=>console.log(err))
 
