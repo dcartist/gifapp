@@ -63,6 +63,7 @@ class Pagination extends Component {
             </div>
         );
     }
+    
 }
 
 export default Pagination;
