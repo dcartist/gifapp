@@ -1,30 +1,35 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Results from "./Pages/Results"
+import { MDBBtn } from 'mdb-react-ui-kit';
 import Navigation from './Components/Navigation';
+import useAxios from "axios-hooks";
 function App() {
 
-  const [data, setData] = useState({ gifImages: [] });
+  const [dataAxios, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        'https://nameless-wildwood-47841.herokuapp.com/img/',
-      );
-      console.log(result.data)
-      setData(result.data);
-    };
+function fetchingData() {
+  axios.get(`${process.env.REACT_APP_API_URL}`)
+      .then(res => {
+        console.log(res.data)
+        setData(res.data);
+      })
 
-    fetchData();
-  }, []);
+}
 
+
+const [{ data, loading, error }, refetch] = useAxios(`${process.env.REACT_APP_API_URL}`);
+
+// fetchingData()
 
   return (
     <div className="App">
       <Navigation></Navigation>
     {/* TESTING
       {process.env.REACT_APP_API_URL} */}
+      {/* <MDBBtn onClick={fetchingData}>click to activate</MDBBtn> */}
+      <Results data={data}></Results>
     </div>
   );
 }
